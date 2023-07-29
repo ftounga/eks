@@ -4,8 +4,8 @@ data "aws_iam_policy_document" "test_oidc_assume_role_policy" {
     effect = "Allow"
     condition {
       test     = "StringEquals"
-      values   = [replace(aws_iam_openid_connect_provider.eks.url, "https://", "")]
-      variable = "system:serviceaccount:default:aws-test"
+      variable   = "${replace(aws_iam_openid_connect_provider.eks.url, "https://", "")}:sub"
+      values = ["system:serviceaccount:default:aws-test"]
     }
 
     principals {
