@@ -12,6 +12,24 @@ spec:
       labels:
         app: nginx
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - nodes-general
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+              topologyKey: "kubernetes.io/hostname"
       containers:
         - name: nginx
           image: nginx:latest
