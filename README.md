@@ -11,4 +11,4 @@ This project help to deploy a complete eks cluster from scratch
 - EKS Load balancer
 - EKS node group
 
-![Alt Text](https://pichou-doc.s3.eu-west-1.amazonaws.com/eks-architecture.png)
+![Alt EKS Architecture](https://toungafranck.com/wp-content/uploads/2023/08/eks-architecture.png)
